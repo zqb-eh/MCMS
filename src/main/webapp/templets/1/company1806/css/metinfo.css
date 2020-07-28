@@ -14792,3 +14792,7 @@ a.beian:hover {
 .ctm-content-center {
 	text-align: center;
 }
+
+.widget-body-nopic {
+	padding: 15px 15px;
+}
