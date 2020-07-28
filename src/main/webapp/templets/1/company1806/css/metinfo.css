@@ -13497,7 +13497,7 @@ footer p {
 }
 .met-product.type-3 .widget-shadow {
   padding: 15px;
-  height: 374px;
+  height: 320px;
 }
 .met-product.type-3 .widget-body {
   padding: 0;
@@ -14785,4 +14785,10 @@ a.beian {
 
 a.beian:hover {
   color: #00c1b8;
+}
+
+
+/*custom defined*/
+.ctm-content-center {
+	text-align: center;
 }
