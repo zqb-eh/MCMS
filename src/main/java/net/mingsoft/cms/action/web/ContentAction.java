@@ -9,23 +9,20 @@ import net.mingsoft.base.entity.ResultData;
 import net.mingsoft.basic.bean.EUListBean;
 import net.mingsoft.basic.util.BasicUtil;
 import net.mingsoft.basic.util.StringUtil;
+import net.mingsoft.cms.bean.ContentBean;
 import net.mingsoft.cms.biz.IContentBiz;
 import net.mingsoft.cms.entity.ContentEntity;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 /**
  * 文章管理控制层
@@ -116,7 +113,16 @@ public class ContentAction extends net.mingsoft.cms.action.BaseAction{
 			return;
 		}
 		this.outString(response, "document.write(" + content.getContentHit() + ")");
-		return;
 	}
 
+	@ApiOperation(value = "关键字搜索文章")
+	@RequestMapping("/queryByKey")
+	@ResponseBody
+	public ResultData list(@RequestParam String categoryId, @RequestParam(required = false) String searchKeyword) {
+		BasicUtil.startPage();
+		List<ContentBean> contentList;
+		searchKeyword = StringUtils.isNotBlank(searchKeyword) ? searchKeyword.trim() : null;
+		contentList = contentBiz.queryContentByCategoryIdAndKeyword(categoryId, searchKeyword);
+		return ResultData.build().success(new EUListBean(contentList,(int)BasicUtil.endPage(contentList).getTotal()));
+	}
 }

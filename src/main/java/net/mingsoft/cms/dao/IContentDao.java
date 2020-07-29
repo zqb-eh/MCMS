@@ -36,4 +36,13 @@ public interface IContentDao extends IBaseDao {
      */
     int getSearchCount(@Param("tableName") String tableName, @Param("diyList") List diyList,@Param("map") Map<String, Object> map,
                        @Param("websiteId") int websiteId, @Param("ids") String ids);
+
+    /**
+     * 根据栏目分类和关键词搜索
+     *
+     * @param categoryId    栏目ID
+     * @param searchKeyword 搜索关键词（关键词支持：文章标题，文章作者名称，文章关键词）
+     * @return
+     */
+    public List<ContentBean> queryContentByCategoryIdAndKeyword(@Param("categoryId")String categoryId, @Param("searchKeyword")String searchKeyword);
 }

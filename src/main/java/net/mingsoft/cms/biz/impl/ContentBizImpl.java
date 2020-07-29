@@ -29,7 +29,7 @@ import org.springframework.stereotype.Service;
 import net.mingsoft.base.biz.impl.BaseBizImpl;
 import net.mingsoft.base.dao.IBaseDao;
 import java.util.*;
-import net.mingsoft.cms.entity.ContentEntity;
+
 import net.mingsoft.cms.biz.IContentBiz;
 import net.mingsoft.cms.dao.IContentDao;
 
@@ -68,5 +68,10 @@ public class ContentBizImpl extends BaseBizImpl implements IContentBiz {
 			return contentDao.getSearchCount(contentModel.getModelTableName(),diyList,whereMap, appId,categoryIds);
 		}
 		return contentDao.getSearchCount(null,null,whereMap, appId,categoryIds);
+	}
+
+	@Override
+	public List<ContentBean> queryContentByCategoryIdAndKeyword(String categoryId, String searchKeyword) {
+		return contentDao.queryContentByCategoryIdAndKeyword(categoryId, searchKeyword);
 	}
 }
