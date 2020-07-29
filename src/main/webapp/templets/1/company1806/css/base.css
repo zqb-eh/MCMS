@@ -332,3 +332,7 @@ a:hover {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+
+.cst-service-height {
+	height: 400px !important;
+}
