@@ -16,6 +16,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
@@ -23,6 +24,7 @@ import springfox.documentation.annotations.ApiIgnore;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 /**
  * 文章管理控制层
@@ -41,6 +43,11 @@ public class ContentAction extends net.mingsoft.cms.action.BaseAction{
 	 */	
 	@Autowired
 	private IContentBiz contentBiz;
+
+	/**
+	 * 拼接文章链接内容
+	 */
+	private static final String HTML = ".html";
 
 	/**
 	 * 查询文章列表
@@ -120,9 +127,10 @@ public class ContentAction extends net.mingsoft.cms.action.BaseAction{
 	@ResponseBody
 	public ResultData list(@RequestParam String categoryId, @RequestParam(required = false) String searchKeyword) {
 		BasicUtil.startPage();
-		List<ContentBean> contentList;
+		List<ContentEntity> contentList;
 		searchKeyword = StringUtils.isNotBlank(searchKeyword) ? searchKeyword.trim() : null;
 		contentList = contentBiz.queryContentByCategoryIdAndKeyword(categoryId, searchKeyword);
+		contentList.forEach(item -> item.setContentUrl(item.getId() + HTML));
 		return ResultData.build().success(new EUListBean(contentList,(int)BasicUtil.endPage(contentList).getTotal()));
 	}
 }

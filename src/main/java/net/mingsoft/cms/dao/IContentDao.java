@@ -4,6 +4,7 @@ import net.mingsoft.base.dao.IBaseDao;
 import java.util.*;
 
 import net.mingsoft.cms.bean.ContentBean;
+import net.mingsoft.cms.entity.ContentEntity;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -44,5 +45,5 @@ public interface IContentDao extends IBaseDao {
      * @param searchKeyword 搜索关键词（关键词支持：文章标题，文章作者名称，文章关键词）
      * @return
      */
-    public List<ContentBean> queryContentByCategoryIdAndKeyword(@Param("categoryId")String categoryId, @Param("searchKeyword")String searchKeyword);
+    public List<ContentEntity> queryContentByCategoryIdAndKeyword(@Param("categoryId")String categoryId, @Param("searchKeyword")String searchKeyword);
 }

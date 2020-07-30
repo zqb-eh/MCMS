@@ -23,6 +23,7 @@ package net.mingsoft.cms.biz.impl;
 
 import net.mingsoft.basic.util.BasicUtil;
 import net.mingsoft.cms.bean.ContentBean;
+import net.mingsoft.cms.entity.ContentEntity;
 import net.mingsoft.mdiy.entity.ModelEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -71,7 +72,7 @@ public class ContentBizImpl extends BaseBizImpl implements IContentBiz {
 	}
 
 	@Override
-	public List<ContentBean> queryContentByCategoryIdAndKeyword(String categoryId, String searchKeyword) {
+	public List<ContentEntity> queryContentByCategoryIdAndKeyword(String categoryId, String searchKeyword) {
 		return contentDao.queryContentByCategoryIdAndKeyword(categoryId, searchKeyword);
 	}
 }

@@ -2,6 +2,7 @@ package net.mingsoft.cms.biz;
 
 import net.mingsoft.base.biz.IBaseBiz;
 import net.mingsoft.cms.bean.ContentBean;
+import net.mingsoft.cms.entity.ContentEntity;
 import net.mingsoft.mdiy.entity.ModelEntity;
 
 import java.util.List;
@@ -22,5 +23,5 @@ public interface IContentBiz extends IBaseBiz {
 
     int getSearchCount(ModelEntity contentModel, List diyList, Map whereMap, int appId, String categoryIds);
 
-    List<ContentBean> queryContentByCategoryIdAndKeyword(String categoryId, String searchKeyword);
+    List<ContentEntity> queryContentByCategoryIdAndKeyword(String categoryId, String searchKeyword);
 }
