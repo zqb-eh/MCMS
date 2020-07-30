@@ -1,0 +1,18 @@
+<!-- handlebars templates -->
+<!-- 新闻列表 -->
+<script type="text/template" id="news-line">
+	{{#each rows}}
+	<div class="widget widget-article widget-shadow news-line">
+		<div class="widget-body widget-body-nopic">
+			<h4 class="widget-title">
+				<a href="{{contentUrl}}" title="{{contentTitle}}" target="_blank">【科技局】6月底，全市科技型企业累计达到21043家</a>
+			</h4>
+			<p class="widget-metas">
+				{{updateDate}}
+				<span></span>
+			</p>
+			<p class="margin-bottom-0">{{contentDescription}}</p>
+		</div>
+	</div>
+	{{/each}}
+</script>

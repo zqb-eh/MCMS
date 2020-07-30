@@ -14809,3 +14809,7 @@ a.beian:hover {
 .cst-widget-shadow {
 	padding: 15px;
 }
+
+.no-more-article {
+  cursor: not-allowed !important;
+}

@@ -243,16 +243,12 @@
 					<div class="col-md-3">
 						<div class="row">
 							<div class="met-news-bar">
-								<form>
-									<input type='hidden' name='lang' value='cn' />
-									<input type='hidden' name='class1' value='5' />
-									<div class="form-group">
-										<div class="input-search">
-											<button type="submit" class="input-search-btn"><i class="iconfont">&#xe70d;</i></button>
-											<input type="text" class="form-control" name="searchword" placeholder="Search">
-										</div>
+								<div class="form-group">
+									<div class="input-search">
+										<button type="submit" class="input-search-btn"><i class="iconfont">&#xe70d;</i></button>
+										<input type="text" class="form-control" name="searchword" placeholder="Search">
 									</div>
-								</form>
+								</div>
 								<div class="recommend news-list-md">
 									<h3>为您推荐</h3>
 									<div class="list-group list-group-bordered">
@@ -314,5 +310,25 @@
 		}
 		$(".nav-li>a").eq(parseInt(id - 1)).addClass("active");
 	}
+</script>
+<!-- handlebars -->
+<script src="http://localhost:8081/templets/1/company1806/js/handlebars-v4.7.6.js"></script>
+<script type="text/javascript" src="http://localhost:8081/templets/1/company1806/js/main.js"></script><!-- handlebars templates -->
+<!-- 新闻列表 -->
+<script type="text/template" id="news-line">
+	{{#each rows}}
+	<div class="widget widget-article widget-shadow news-line">
+		<div class="widget-body widget-body-nopic">
+			<h4 class="widget-title">
+				<a href="{{contentUrl}}" title="{{contentTitle}}" target="_blank">【科技局】6月底，全市科技型企业累计达到21043家</a>
+			</h4>
+			<p class="widget-metas">
+				{{updateDate}}
+				<span></span>
+			</p>
+			<p class="margin-bottom-0">{{contentDescription}}</p>
+		</div>
+	</div>
+	{{/each}}
 </script>	</body>
 </html>
