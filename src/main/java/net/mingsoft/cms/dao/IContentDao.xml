@@ -318,7 +318,7 @@
         </if>
         <if test="searchKeyword!=null and searchKeyword!=''">
             <bind name="pattern" value="'%' + searchKeyword + '%'"/>
-            AND
+            AND(
             cms_content.content_title like #{pattern}
             OR
             cms_content.content_keyword like #{pattern}
@@ -326,6 +326,7 @@
             cms_content.content_source like #{pattern}
             OR
             cms_content.content_author like #{pattern}
+            )
         </if>
     </select>
 </mapper>
