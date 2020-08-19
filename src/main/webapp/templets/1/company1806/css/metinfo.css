@@ -14817,3 +14817,21 @@ a.beian:hover {
 .banner-link {
   position: relative !important;
 }
+
+/*product show*/
+.met-product .ms-overflow {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+li.shown {
+  text-align: center;
+}
+
+li.shown .ms-overflow {
+  height: 18px;
+}
+
+li.shown .widget.widget-shadow {
+  height: 340px;
+}
